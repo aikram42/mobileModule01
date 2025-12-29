@@ -12,7 +12,7 @@ export default function Today() {
         alignItems: "center",
       }}
     >
-      <Text className='bg-slate-600 font-extrabold'>Today {searchText}</Text>
+      <Text className=''>Today {searchText}</Text>
     </View>
   );
 }

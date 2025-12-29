@@ -12,7 +12,7 @@ export default function Weekly() {
         alignItems: "center",
       }}
     >
-      <Text className='bg-slate-600 font-extrabold'>Weekly {searchText}</Text>
+      <Text className=''>Weekly {searchText}</Text>
     </View>
   );
 }

@@ -4,19 +4,30 @@ import { createMaterialTopTabNavigator } from "@react-navigation/material-top-ta
 import { withLayoutContext } from "expo-router";
 import React from "react";
 import { StyleSheet, TextInput, TouchableOpacity, View } from "react-native";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 const Tab = createMaterialTopTabNavigator();
 export const MaterialTabs = withLayoutContext(Tab.Navigator);
 
 function TabContents() {
-  const {searchText, setSearchText} = useSearch();
+  const { searchText, setSearchText } = useSearch();
 
   const handleGeolocation = () => {
     setSearchText("Geolocation");
   };
 
+  const insets = useSafeAreaInsets();
+
   return (
-    <View style={{ flex: 1 }}>
+    <View
+      style={{
+        flex: 1,
+        paddingBottom: insets.bottom,
+        paddingTop: insets.top,
+        paddingEnd: insets.right,
+        paddingStart: insets.left,
+      }}
+    >
       {/* --- TOP BAR SECTION --- */}
       <View style={styles.topBar}>
         <View style={styles.searchContainer}>
@@ -40,18 +51,9 @@ function TabContents() {
           tabBarIndicatorStyle: { height: 0 },
         }}
       >
-        <MaterialTabs.Screen 
-          name="index" 
-          options={{ title: "Currently" }}
-        />
-        <MaterialTabs.Screen 
-          name="today" 
-          options={{ title: "Today" }}
-        />
-        <MaterialTabs.Screen 
-          name="weekly" 
-          options={{ title: "Weekly" }}
-        />
+        <MaterialTabs.Screen name="index" options={{ title: "Currently" }} />
+        <MaterialTabs.Screen name="today" options={{ title: "Today" }} />
+        <MaterialTabs.Screen name="weekly" options={{ title: "Weekly" }} />
       </MaterialTabs>
     </View>
   );
@@ -59,32 +61,32 @@ function TabContents() {
 
 const styles = StyleSheet.create({
   topBar: {
-    flexDirection: 'row',
+    flexDirection: "row",
+    paddingTop: 5,
+    paddingBottom: 5,
     paddingHorizontal: 16,
-    paddingTop: 60, // Adjust for notch/SafeArea
-    paddingBottom: 10,
-    backgroundColor: 'white',
-    alignItems: 'center',
+    backgroundColor: "white",
+    alignItems: "center",
     gap: 10,
   },
   searchContainer: {
     flex: 1,
-    flexDirection: 'row',
-    backgroundColor: '#f0f0f0',
+    flexDirection: "row",
+    backgroundColor: "#f0f0f0",
     borderRadius: 10,
     paddingHorizontal: 10,
-    alignItems: 'center',
+    alignItems: "center",
     height: 45,
   },
   input: {
     flex: 1,
     marginLeft: 8,
     fontSize: 16,
-    outlineWidth: 0
+    outlineWidth: 0,
   },
   geoButton: {
     padding: 5,
-  }
+  },
 });
 
 export default function TabLayout() {
@@ -94,7 +96,6 @@ export default function TabLayout() {
     </SearchProvider>
   );
 }
-
 
 // import '@/global.css';
 // import { Ionicons } from "@expo/vector-icons";
@@ -168,8 +169,6 @@ export default function TabLayout() {
 //   );
 // }
 
-
-
 // import { Ionicons } from "@expo/vector-icons";
 // import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
 // import { withLayoutContext } from "expo-router";
@@ -190,8 +189,8 @@ export default function TabLayout() {
 //   const layoutWidth = useRef(0);
 
 //   return (
-//     <View 
-//       style={styles.tabsContainer} 
+//     <View
+//       style={styles.tabsContainer}
 //       onLayout={(e) => (layoutWidth.current = e.nativeEvent.layout.width)}
 //     >
 //       {state.routes.map((route, index) => {
@@ -245,8 +244,8 @@ export default function TabLayout() {
 
 // export default function TabLayout() {
 //   return (
-//     <MaterialTopTabs 
-//       tabBarPosition="bottom" 
+//     <MaterialTopTabs
+//       tabBarPosition="bottom"
 //       tabBar={(props) => <MyTabBar {...props} />}
 //     >
 //       {/* Screens match your file names: index.tsx, today.tsx, weekly.tsx */}

@@ -12,7 +12,7 @@ export default function Index() {
         alignItems: "center",
       }}
     >
-      <Text className='bg-slate-600 font-extrabold'>Currently {searchText}</Text>
+      <Text className=''>Currently {searchText}</Text>
     </View>
   );
 }

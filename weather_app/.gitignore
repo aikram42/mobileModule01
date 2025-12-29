@@ -1,0 +1,62 @@
+# Learn more https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files
+
+# dependencies
+node_modules/
+
+# Expo
+.expo/
+dist/
+web-build/
+expo-env.d.ts
+dist-bundle/
+
+# Native
+.kotlin/
+*.orig.*
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+
+# Android
+android/app/.cxx/
+android/app/build/
+android/.gradle/
+android/build/
+
+# Metro
+.metro-health-check*
+
+# debug
+npm-debug.*
+yarn-debug.*
+yarn-error.*
+*.log
+and-error-logs.txt
+order_page_architecture.html
+order_page_architecture_files/
+
+# Temporary documentation and fix files
+*-fixes-*.md
+*-fix-*.md
+*-summary.md
+fix_*.sql
+run-*.sql
+check-*.sql
+*_examples.sql
+*.md
+
+# macOS
+.DS_Store
+*.pem
+
+# local env files
+.env*.local
+.env
+
+# typescript
+*.tsbuildinfo
+
+# Legacy Appwrite artifacts (remove when possible)
+functions/appwrite/
