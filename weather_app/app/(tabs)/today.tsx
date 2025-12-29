@@ -1,18 +1,15 @@
 import { useSearch } from '@/context/SearchContext';
-import { Text, View } from "react-native";
+import { ScrollView, Text, View } from "react-native";
+import React from 'react';
 
 export default function Today() {
   const { searchText } = useSearch();
 
   return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      <Text className=''>Today {searchText}</Text>
-    </View>
+    <ScrollView className='flex'>
+      <View className='flex min-h-full justify-center items-center'>
+        <Text>Today {searchText}</Text>
+      </View>
+    </ScrollView>
   );
 }
